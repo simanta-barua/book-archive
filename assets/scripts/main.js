@@ -42,7 +42,7 @@ const displayBooks = books => {
     }
     else {
         //show found books
-        resultCount.innerText = `(${books.numFound})`
+        resultCount.innerText = `(20 of ${books.numFound}  )`
         //getting books
         const result = books.docs
         bookList.textContent = '';
@@ -50,20 +50,23 @@ const displayBooks = books => {
         show20.forEach((book) => {
             const div = document.createElement('tr');
             div.innerHTML = div.innerHTML = ` <div class="card h-100">
-            <img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top header-img  image-fluid" alt="Book Cover">
+            <img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg" class="card-img-top header-img  image-fluid" alt="Book Cover">
             <div class="card-body">
               <h5 class="card-title">${book.title}</h5>
               <h6>Author: <span class="text-primary">  ${book.author_name[0]}</span></h6>
-              <h6>Publisher: ${book.publish_place}</h6>
-              <h6>First Publish Year: ${book.first_publish_year}</h6>
+              <h6>Publisher:<span class="text-success"> ${book.publish_place}</h6>
+              <h6>First Publish Year: <span class="text-muted">${book.first_publish_year}</h6>
             </div>
             <div class="card-footer">
               <small class="text-muted"></small>
             </div>
           </div>`;
+          
             bookList.appendChild(div);
         });
         toggleSpinner('none')
     }
 
 }
+
+
