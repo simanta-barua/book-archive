@@ -21,9 +21,10 @@
             <h5 class="text-muted text-center ">The world's largest ebook library </h5>
         </div>
         <div class="input-group mb-3  w-75 mx-auto">
-            <input id="search-text" type="text" class="form-control" placeholder="Search for title, author, ISBN, publisher, md5.."
-                aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="searchBooks()">Search</button>
+            <input id="search-text" type="text" class="form-control"
+                placeholder="Search for title, author, ISBN, publisher, md5.." aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                onclick="searchBooks()">Search</button>
         </div>
     </header>
     <!-- Main Area -->
@@ -32,26 +33,31 @@
             <div>
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Book (<span id="result-count"></span>)</a>
+                        <a class="nav-link active" aria-current="page" href="#">Book <span
+                                id="result-count"></span></a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link text-muted" href="#">Article</a>
                     </li>
 
                 </ul>
             </div>
-            
-                <div id="spinner" class="mx-auto mt-5 spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-                <table class="table table-hover bg-white" >
+            <!-- error Message -->
+            <div id="error-message" class="text-center text-danger p-5"> </div>
+            <!-- spinner -->
+            <div id="spinner" class="mx-auto mt-5 spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
-                <tbody id="book-list">
-                    
-                </tbody>
-                
-            </table>
+
+            <!-- Search Result -->
+
+            <table class="table table-hover bg-white">
+        </div>
+        <tbody id="book-list">
+
+        </tbody>
+
+        </table>
         </div>
     </main>
 
