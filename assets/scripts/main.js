@@ -48,20 +48,21 @@ const displayBooks = books => {
         bookList.textContent = '';
         result.forEach((book) => {
             const div = document.createElement('tr');
-            div.innerHTML = ` <td ><img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="" srcset=""></td>
-        <td><a href="">${book.title}</a>
-            <li class="list-group text-muted"></li>
-            <li class="list-group text-success mt-3 mb-5"> ${book.author_name}</li>
-            <div class="d-flex justify-content-around text-muted mt-5">
-                <li class="list-group ">Year : ${book.first_publish_year}</li>
-                <li class="list-group">Language : ${book.language}</li>
-                <li class="list-group">File</li>
-                <li class="list-group">Rating</li>
+            div.innerHTML = div.innerHTML = ` <div class="card h-100">
+            <img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top header-img  image-fluid" alt="Book Cover">
+            <div class="card-body">
+              <h5 class="card-title">${book.title}</h5>
+              <p>Author: ${book.author_name}</p>
             </div>
-        </td>`;
-
+            <div class="card-footer">
+              <small class="text-muted">Publish Year: ${book.first_publish_year}</small>
+            </div>
+          </div>`;
             bookList.appendChild(div);
         });
+       
+        
+
     }
     toggleSpinner('none')
 }
