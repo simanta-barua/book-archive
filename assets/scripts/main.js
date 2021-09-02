@@ -44,7 +44,12 @@ const displayBooks = books => {
     }
     else {
         //show found books number
-        resultCount.innerText = `(20 of ${books.numFound}  )`
+        if(resultCount<=20){
+            resultCount.innerText = `(20 of ${books.numFound}  )`
+        }
+        else{
+            resultCount.innerText = `(${books.numFound} of ${books.numFound}  )`
+        }
         //getting books
         const result = books.docs
         bookList.textContent = '';
