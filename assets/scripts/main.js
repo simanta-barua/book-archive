@@ -18,7 +18,7 @@ const searchBooks = () => {
     //show spinner
     toggleSpinner('block');
     //fetch Book
-    fetch(`http://openlibrary.org/search.json?q=${searchText}`)
+    fetch(`https://openlibrary.org/search.json?q=${searchText}`)
         .then(res => res.json())
         .then(data => displayBooks(data)
         )
