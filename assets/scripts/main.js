@@ -9,7 +9,7 @@ const searchBooks = () => {
     const searchText = searchField.value
     //check search filed value
     if (searchText === '') {
-        errorMessage('cannot be empty');
+        errorMessage('Please input Something');
         return;
     }
     //clear message
@@ -37,7 +37,7 @@ const toggleSpinner = displayStyle => {
 const displayBooks = books => {
     //check books result 
     if (books.numFound === 0) {
-        errorMessage('No Book Found')
+        errorMessage(`No results found for  "${searchField.value}"`)
         bookList.textContent = '';
     }
     else {
