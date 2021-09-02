@@ -21,9 +21,9 @@
             <h5 class="text-muted text-center ">The world's largest ebook library </h5>
         </div>
         <div class="input-group mb-3  w-75 mx-auto">
-            <input type="text" class="form-control" placeholder="Search for title, author, ISBN, publisher, md5.."
+            <input id="search-text" type="text" class="form-control" placeholder="Search for title, author, ISBN, publisher, md5.."
                 aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="searchBooks()">Search</button>
         </div>
     </header>
     <!-- Main Area -->
@@ -41,7 +41,12 @@
 
                 </ul>
             </div>
-            <table class="table table-hover bg-white" >
+            
+                <div id="spinner" class="mx-auto mt-5 spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                <table class="table table-hover bg-white" >
+            </div>
                 <tbody id="book-list">
                     
                 </tbody>
