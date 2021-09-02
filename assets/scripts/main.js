@@ -46,23 +46,24 @@ const displayBooks = books => {
         //getting books
         const result = books.docs
         bookList.textContent = '';
-        result.forEach((book) => {
+        const show20 = result.slice(0, 20);
+        show20.forEach((book) => {
             const div = document.createElement('tr');
             div.innerHTML = div.innerHTML = ` <div class="card h-100">
             <img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top header-img  image-fluid" alt="Book Cover">
             <div class="card-body">
               <h5 class="card-title">${book.title}</h5>
-              <p>Author: ${book.author_name}</p>
+              <h6>Author: <span class="text-primary">  ${book.author_name[0]}</span></h6>
+              <h6>Publisher: ${book.publish_place}</h6>
+              <h6>First Publish Year: ${book.first_publish_year}</h6>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Publish Year: ${book.first_publish_year}</small>
+              <small class="text-muted"></small>
             </div>
           </div>`;
             bookList.appendChild(div);
         });
-       
-        
-
+        toggleSpinner('none')
     }
-    toggleSpinner('none')
+
 }
