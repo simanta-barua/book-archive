@@ -66,7 +66,7 @@ const displayBooks = books => {
           </div>`;
             bookList.appendChild(div);
         });
-
+        toggleSpinner('none')
 
     }
     toggleSpinner('none')
