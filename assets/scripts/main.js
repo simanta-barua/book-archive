@@ -26,6 +26,7 @@ const searchBooks = () => {
 //show error message
 const errorMessage = (getError) => {
     document.getElementById('error-message').innerText = getError;
+
 }
 
 //spinner toggle
@@ -33,6 +34,7 @@ const toggleSpinner = displayStyle => {
     const spinner = document.getElementById('spinner').style.display = displayStyle;
 
 }
+
 //display Book
 const displayBooks = books => {
     //check books result 
@@ -41,27 +43,36 @@ const displayBooks = books => {
         bookList.textContent = '';
     }
     else {
-        //show found books
-        resultCount.innerText = `(${books.numFound})`
+        //show found books number
+        if (resultCount <= 20) {
+            resultCount.innerText = `(${books.numFound} of ${books.numFound}  )`
+        }
+        else {
+            resultCount.innerText = `(20 of ${books.numFound}  )`
+
+        }
         //getting books
         const result = books.docs
         bookList.textContent = '';
-        result.forEach((book) => {
+        //show found 20 books
+        const show20 = result.slice(0, 20);
+        show20.forEach(book => {
             const div = document.createElement('tr');
-            div.innerHTML = ` <td ><img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="" srcset=""></td>
-        <td><a href="">${book.title}</a>
-            <li class="list-group text-muted"></li>
-            <li class="list-group text-success mt-3 mb-5"> ${book.author_name}</li>
-            <div class="d-flex justify-content-around text-muted mt-5">
-                <li class="list-group ">Year : ${book.first_publish_year}</li>
-                <li class="list-group">Language : ${book.language}</li>
-                <li class="list-group">File</li>
-                <li class="list-group">Rating</li>
+            div.innerHTML = div.innerHTML = ` <div class="card h-100">
+            <img src=" https://covers.openlibrary.org/b/id/${book?.cover_i}-L.jpg" class="card-img-top header-img  image-fluid" alt="Book Cover">
+            <div class="card-body">
+              <h5 class="card-title">${book?.title}</h5>
+              <h6>Author: <span class="text-primary">  ${book?.author_name?.[0]}</span></h6>
+              <h6>Publisher:<span class="text-success"> ${book?.publish_place}</h6>
+              <h6>First Publish Year: <span class="text-muted">${book?.first_publish_year}</h6>
             </div>
-        </td>`;
-
+            <div class="card-footer">
+            </div>
+          </div>`;
             bookList.appendChild(div);
         });
+
     }
-    toggleSpinner('none')
+    toggleSpinner('none');
 }
+
